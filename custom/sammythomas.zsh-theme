@@ -7,6 +7,7 @@ bracket="%{$fg_bold[blue]%}"
 branch="%{$fg_bold[green]%}"
 clean_color="%{$fg[green]%}"
 dirty_color="%{$fg[green]%}"
+ssh_color="%{$fg[red]%}"
 open=" ("
 close=")"
 clean="✔"
@@ -27,10 +28,16 @@ git_prompt_status() {
     echo "$(git_prompt_dirty)$(git_prompt_branch)"
 }
 
+is_ssh() {
+    if [ ! -z $SSH_CONNECTION ]; then
+        echo "${bracket}(${ssh_color}ssh${bracket})${reset}"
+    fi
+}
+
 git_status="$(git_prompt_dirty)"
 
 success="◎"
 error="◉"
 local ret_status="%(?:%{$fg_bold[green]%}${success}:%{$fg_bold[red]%}${error})"
-PROMPT='$(git_prompt_status) %{$fg[blue]%}%~ ${ret_status}%{$reset_color%} '
+PROMPT='$(is_ssh)$(git_prompt_status) %{$fg[blue]%}%~ ${ret_status}%{$reset_color%} '
 
