@@ -35,9 +35,10 @@ is_ssh() {
 }
 
 git_status="$(git_prompt_dirty)"
-
-success="◎"
-error="◉"
+# ○ ●
+success="➜"
+error="⭯"
 local ret_status="%(?:%{$fg_bold[green]%}${success}:%{$fg_bold[red]%}${error})"
-PROMPT='$(is_ssh)$(git_prompt_status) %{$fg[blue]%}%~ ${ret_status}%{$reset_color%} '
+PROMPT='$(is_ssh) %{$fg[blue]%}%~ ${ret_status}%{$reset_color%} '
+RPROMPT='$(git_prompt_status)'
 
