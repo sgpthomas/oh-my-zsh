@@ -39,6 +39,9 @@ git_status="$(git_prompt_dirty)"
 success="➜"
 error="⭯"
 local ret_status="%(?:%{$fg_bold[green]%}${success}:%{$fg_bold[red]%}${error})"
-PROMPT='$(is_ssh) %{$fg[blue]%}%~ ${ret_status}%{$reset_color%} '
-RPROMPT='$(git_prompt_status)'
+local date="%F{243}[%D{%0L:%M}]%f"
+PROMPT='
+ ${date} $(battery_level_gauge) $(is_ssh)%U%{$fg_bold[blue]%}%~%u$(git_prompt_status)
+${ret_status}%{$reset_color%} '
+# RPROMPT='$(git_prompt_status)'
 
