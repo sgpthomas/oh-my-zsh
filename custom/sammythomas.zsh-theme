@@ -46,7 +46,7 @@ error="⭯"
 local ret_status="%(?:%{$fg_bold[green]%}${success}:%{$fg_bold[red]%}${error})"
 local date="%F{243}[%D{%0l:%M}]%f"
 PROMPT='
- $(is_ssh) %U%{$fg_bold[blue]%}%~%u
+ $(is_ssh) %{$fg_bold[blue]%}%~
 $(git_prompt_status) ${ret_status}%{$reset_color%} '
 # RPROMPT='$(git_prompt_status)'
 
