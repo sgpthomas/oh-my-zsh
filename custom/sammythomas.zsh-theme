@@ -32,7 +32,7 @@ git_prompt_status() {
 
 is_ssh() {
     if [ ! -z $SSH_PROMPT ]; then
-        echo "${bracket}(${ssh_color}$SSH_PROMPT${bracket})${reset}"
+        echo "${ssh_color}($SSH_PROMPT)${reset}"
     fi
 }
 
