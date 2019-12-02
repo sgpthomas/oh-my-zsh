@@ -6,3 +6,4 @@ custom/plugins/zsh-syntax-highlighting
 # temp files directories
 cache/
 log/
+*.swp
